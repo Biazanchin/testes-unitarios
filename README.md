@@ -1,6 +1,6 @@
 # Testes Unitários com Jest ✨
 
-Este repositório é dedicado aos meus estudos de testes unitários utilizando o framework Jest. Aqui você encontrará três projetos diferentes que abordam conceitos e práticas essenciais de testes unitários.
+Este repositório é dedicado aos meus estudos de testes unitários utilizando o framework Jest. Aqui você encontrará cinco projetos diferentes que abordam conceitos e práticas essenciais de testes unitários.
 
 ## Projetos 📚
 
