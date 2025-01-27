@@ -21,8 +21,6 @@ export const Forms = ({ handleSubmitForm }: FormProps) => {
     register,
     formState: { errors },
   } = useForm<FormDataProps>({
-    mode: "all",
-    criteriaMode: "all",
     resolver: zodResolver(schema),
     defaultValues: {
       name: "",

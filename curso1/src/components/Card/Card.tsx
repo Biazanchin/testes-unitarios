@@ -1,33 +1,40 @@
 import { useState } from "react";
-const Card = () => {
-  const [isVisible, setIsVisible] = useState(false);
 
-  const handleOpen = () => {
-    setIsVisible(true);
+type CardProps = {
+  name: string;
+  lastName: string;
+  onClose: () => void;
+};
+
+const Card: React.FC<CardProps> = ({ name, lastName, onClose }) => {
+  const [isVisible, setIsVisible] = useState(true);
+
+  const handleClose = () => {
+    setIsVisible(false);
+    onClose();
   };
 
-  /*useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsVisible(true);
-    }, 300);
-
-    return () => clearInterval(timer);
-  }, []);*/
-
-  return (
+  return isVisible ? (
     <div role="contentinfo">
-      <h2>Card</h2>
-
-      <button onClick={handleOpen}>Open</button>
-      <button onClick={handleOpen}>Close</button>
-
-      {isVisible && (
-        <div role="main">
-          <p>Content</p>
-        </div>
-      )}
+      <h2>Informações do Usuário</h2>
+      <p>
+        <strong>Nome:</strong> {name}
+      </p>
+      <p>
+        <strong>Sobrenome:</strong> {lastName}
+      </p>
+      <button
+        onClick={handleClose}
+        style={{
+          backgroundColor: "red",
+          color: "white",
+          padding: "0.5rem 1rem",
+        }}
+      >
+        Close
+      </button>
     </div>
-  );
+  ) : null;
 };
 
 export default Card;

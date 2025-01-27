@@ -1,10 +1,12 @@
 import "@testing-library/jest-dom";
 import Card from "./Card";
-import { render, screen, fireEvent } from "@testing-library/react";
+import { render, screen, fireEvent, waitFor } from "@testing-library/react";
+
+const mockOnClose = jest.fn();
 
 describe("<Card />", () => {
   it("should render component by default", () => {
-    render(<Card />);
+    render(<Card name="John" lastName="Doe" onClose={mockOnClose} />);
 
     const divElement = screen.getByRole("contentinfo");
 
@@ -12,26 +14,25 @@ describe("<Card />", () => {
   });
 
   it("should render async component", async () => {
-    render(<Card />);
-
-    const mainElement = await screen.findByRole("main");
+    render(<Card name="John" lastName="Doe" onClose={mockOnClose} />);
+    const mainElement = await screen.findByRole("contentinfo");
 
     expect(mainElement).toBeVisible();
   });
 
-  fit("should open component when button was clicked", async () => {
-    render(<Card />);
+  it("should open component when button was clicked", async () => {
+    render(<Card name="John" lastName="Doe" onClose={mockOnClose} />);
 
-    const buttonElement = screen.getByRole("button", { name: "Open" });
+    const buttonElement = screen.getByRole("button", { name: "Close" });
 
     expect(buttonElement).toBeVisible();
-
-    expect(screen.queryByRole("main")).not.toBeInTheDocument();
-
     fireEvent.click(buttonElement);
 
-    const mainElement = screen.getByRole("main");
+    await waitFor(() => {
+      const mainElement = screen.queryByRole("contentinfo");
+      expect(mainElement).not.toBeInTheDocument();
+    });
 
-    expect(mainElement).toBeVisible();
+    expect(mockOnClose).toHaveBeenCalledTimes(1);
   });
 });
