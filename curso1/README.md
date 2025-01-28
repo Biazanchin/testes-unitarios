@@ -1,30 +1,32 @@
-# React + TypeScript + Vite
+# Formulário de Cadastro 📝
+Um formulário simples e funcional para cadastro de nome e sobrenome. Após preencher os campos, um card exibirá suas informações.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Instalação 🚀
 
-Currently, two official plugins are available:
+1. Entre no repositório do projeto:
+    ```
+    cd curso1
+    ```
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+2. Instale as dependências:
+    ```
+    npm install
+    ```
+    
+3. Para rodar a aplicação use o comando:
+   ```
+   npm run dev
+   ```
+   A aplicação deve abrir no localhost:5173
+   
+5. Para rodar os testes use o comando:
+   ```
+   npm test
+   ```
+## Visualização 👀
+### Tela:
+![image](https://github.com/user-attachments/assets/4e4d8889-ea45-430b-8d9b-08b616ce3ebd)
 
-## Expanding the ESLint configuration
+### Testes:
+![image](https://github.com/user-attachments/assets/006b320d-75b6-4f4f-a546-2c795a06e0a7)
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
-
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
